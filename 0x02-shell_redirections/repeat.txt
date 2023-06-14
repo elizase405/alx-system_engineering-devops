@@ -5,3 +5,10 @@ another file with a root ...
 hello
 12345
 a12345
+root:*:0:0:System Zdministrator:/var/root:/bin/sh
+daemon:*:1:1:System Serviees:/var/root:/usr/bin/false
+another file with no ...
+another file with a root ...
+hello
+12345
+a12345
