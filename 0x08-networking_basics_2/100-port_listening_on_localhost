@@ -1,2 +1,5 @@
 #!/usr/bin/env bash
+
+#hgsjj
+
 nc -l localhost 98
