@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+i=0
+
+while [[ $i -lt 10 ]];
+do
+	if (( i == 3 ))
+	then
+		echo "Bad luck"
+	elif ((i == 7))
+	then
+		echo "good luck"
+	else
+		echo "Best Shool"
+	fi
+	((i++))
+done
