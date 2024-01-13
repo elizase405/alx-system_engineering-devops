@@ -4,7 +4,7 @@
 # Where only the part of the name after the first dash is displayed
 
 content=$(ls)
-for i in "$content";
+for i in $($content);
 do
 	echo "$i" | cut -d '-' -f2
 done
