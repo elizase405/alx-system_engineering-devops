@@ -10,7 +10,7 @@ while [[ $i -lt 10 ]];
 do
 	if (( i == 3 ))
 	then
-		echo "Bad luck"
+		echo "bad luck"
 	elif ((i == 7))
 	then
 		echo "good luck"
