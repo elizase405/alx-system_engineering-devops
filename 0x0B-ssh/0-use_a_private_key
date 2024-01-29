@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# connect to server using ssh
 
 cat ~/.ssh/school | ssh ubuntu@54.90.20.102 'mkdir -p .ssh; cat >> .ssh/authorized_keys && echo "Key copied"'
 ssh ubuntu@54.90.20.102
