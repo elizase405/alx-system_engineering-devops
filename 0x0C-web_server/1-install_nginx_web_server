@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Install Nginx
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+
+# Configure local computer
+mkdir /etc/nginx/html
+
+# Create sample page
+echo "Hello World!" > /etc/nginx/html/index.html
+
+# Create a server block file
+echo "
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /etc/nginx/html;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+}
+" > /etc/nginx/sites-available/default
+
+# Restart nginx
+nginx -s reload
