@@ -4,7 +4,9 @@
 sudo apt-get -y update
 sudo apt-get install -y nginx
 
-string_to_replace="server_name _;\n\nlocation\/redirect_me {\n\treturn 301 https://www.\/\/www.google.com;\n}"
+# string_to_replace="server_name _;\n\nlocation\/redirect_me {\n\treturn 301 https:\/\/www.google.com;\n}"
+
+string_to_replace="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.google.com permanent;"
 
 sudo sed -i "s/server_name _;/$string_to_replace/" /etc/nginx/sites-enabled/default
 
