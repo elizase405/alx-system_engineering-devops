@@ -1,0 +1,5 @@
+#!/bin/usr/env bash
+# displays the content(username:user_id:user_home_directory)
+# of the file /etc/passwd
+
+
