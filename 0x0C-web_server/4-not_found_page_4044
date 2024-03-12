@@ -5,9 +5,9 @@ sudo apt-get -y update
 sudo apt-get install -y nginx
 
 # Create 404 page
-echo "Ceci n'est pas une page" > /var/www/html/404.html
+echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
 
-string_to_replace="server_name _;\n\terror_page 404 \/404.html;\nlocation = \/404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\n\t}"
+string_to_replace="server_name _;\n\terror_page 404 \/404.html;\nlocation = \/404.html {\n\t\troot \/etc\/nginx\/html;\n\t\tinternal;\n\t}"
 
 sudo sed -i "s/server_name _;/$string_to_replace/" /etc/nginx/sites-enabled/default
 
