@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Install and configure HAproxy
+
+# Install
+sudo apt-get update -y
+sudo apt-get install haproxy -y
+
+# Add Frontend and backend
+echo "
+frontend helloworld
+	bind *:80
+	
+	default_backend worldhello
+
+backend worldhello
+	balance roundrobin
+	server 429044-web-01 54.157.139.56:80 check
+	server 429044-web-02 54.166.139.152:80 check
+" >> /etc/haproxy/haproxy.cfg
+
+# Enable haproxy
+sudo sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/haproxy
+
+# Restart haproxy
+sudo service haproxy restart
