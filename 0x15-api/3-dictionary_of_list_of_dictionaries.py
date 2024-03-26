@@ -4,8 +4,8 @@ Use https://jsonplaceholder.typicode.com/ API to get data
 about a certain employee
 """
 
-import requests
 import json
+import requests
 
 if __name__ == "__main__":
     uri = "https://jsonplaceholder.typicode.com"
@@ -26,7 +26,7 @@ if __name__ == "__main__":
                 user_data["completed"] = todo.get("completed")
             if user_data != {}:
                 user_info.append(user_data)
-        users_info[user_id] = user_info    
+        users_info[user_id] = user_info
 
     with open(file_name, "w") as json_file:
         json.dump(users_info, json_file)
