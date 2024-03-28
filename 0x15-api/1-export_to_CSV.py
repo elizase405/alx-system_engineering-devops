@@ -31,7 +31,8 @@ if __name__ == "__main__":
             datas.append(data)
 
     with open(csv_file_path, mode="w", newline="") as file:
-        writer = csv.DictWriter(file, fieldnames=datas[0].keys(), quoting=csv.QUOTE_ALL)
+        writer = csv.DictWriter(file, fieldnames=datas[0].keys(),
+                                quoting=csv.QUOTE_ALL)
 
         for data in datas:
             writer.writerow(data)
