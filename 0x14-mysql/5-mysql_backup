@@ -8,11 +8,7 @@ pwd="$1"
 file_name="$(date +"%d-%m-%y").tar.gz"
 
 # Dump sql database
-<<<<<<< HEAD
-mysqldump --user=root --all-databases > backup.sql
-=======
-mysqldump --user=root --password="$MYSQL_PASSWORD" --all-databases > backup.sql
->>>>>>> fce12d590bb2660b16916827614df355fca4a470
+mysqldump --user=root -p "$pwd" --all-databases > backup.sql
 
 # compress database
 tar -czf "$file_name" "backup.sql"
