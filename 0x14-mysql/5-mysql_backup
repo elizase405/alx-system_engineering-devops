@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# get mysql server password from database
+pwd="$1"
+
+# filename for compressed file
+file_name="$(date +"%d-%m-%y").tar.gz"
+
+# Dump sql database
+mysqldump -uroot -p "$pwd" --all-databases > backup.sql
+
+# compress database
+tar -czf "$file_name" "backup.sql"
