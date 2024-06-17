@@ -1,4 +1,4 @@
-# Ensure file descriptor limits for the nginx user
+ure file descriptor limits for the nginx user
 file { '/etc/security/limits.d/nginx.conf':
   ensure  => file,
   content => "nginx soft nofile 65536\nnginx hard nofile 65536\n",
@@ -23,7 +23,7 @@ augeas { 'pam_limits_common-session-noninteractive':
 # Ensure the nginx configuration file has the correct content
 file { '/etc/nginx/nginx.conf':
   ensure  => file,
-  content => @('EOF')
+  content => "
 user  nginx;
 worker_processes  auto;
 worker_rlimit_nofile 65536;
@@ -36,9 +36,9 @@ http {
     include       /etc/nginx/mime.types;
     default_type  application/octet-stream;
 
-    log_format  main  '\$remote_addr - \$remote_user [\$time_local] "\$request" '
-                      '\$status \$body_bytes_sent "\$http_referer" '
-                      '"\$http_user_agent" "\$http_x_forwarded_for"';
+    log_format  main  '\$remote_addr - \$remote_user [\$time_local] \"\$request\" '
+                      '\$status \$body_bytes_sent \"\$http_referer\" '
+                      '\"\$http_user_agent\" \"\$http_x_forwarded_for\"';
 
     access_log  /var/log/nginx/access.log  main;
 
@@ -51,7 +51,7 @@ http {
 
     include /etc/nginx/conf.d/*.conf;
 }
-| EOF
+",
   notify  => Exec['nginx_reload'],
 }
 
